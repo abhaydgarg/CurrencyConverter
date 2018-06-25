@@ -1,0 +1,66 @@
+{
+  "name": "CurrencyConverter",
+  "version": "1.0.0",
+  "description": "Minimal currency converter by using React Native",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "resetCacheAndStart": "npm start -- --reset-cache",
+    "ios": "react-native run-ios --simulator=\"iPhone 8 Plus\"",
+    "android": "react-native run-android",
+    "debug": "react-devtools",
+    "test": "jest",
+    "androidReleaseTest": "react-native run-android --variant=release",
+    "androidBuildApk": "cd android && ./gradlew assembleRelease",
+    "iosReleaseTestOnSim": "react-native run-ios --simulator=\"iPhone 8 Plus\" --configuration Release",
+    "iosReleaseTestOnDevice": "react-native run-ios --device iPhone --configuration Release"
+  },
+  "dependencies": {
+    "@abhaydgarg/is": "^1.0.0",
+    "dateformat": "^3.0.3",
+    "prop-types": "^15.6.2",
+    "react": "^16.3.1",
+    "react-native": "^0.55.4",
+    "react-native-animatable": "^1.3.0",
+    "react-native-device-info": "^0.21.5",
+    "react-native-flags": "^1.0.0",
+    "react-native-linear-gradient": "^2.4.0",
+    "react-native-modal-filter-picker": "^1.3.4",
+    "react-native-restart": "^0.0.6",
+    "react-native-root-toast": "^3.0.1",
+    "react-native-shake-event": "^4.0.1",
+    "react-native-status-bar-height": "^2.0.0",
+    "react-native-vector-icons": "^4.6.0",
+    "react-navigation": "^2.4.1",
+    "redux": "^4.0.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.3",
+    "babel-jest": "23.0.1",
+    "babel-preset-react-native": "4.0.0",
+    "eslint": "^4.19.1",
+    "eslint-plugin-react": "^7.9.1",
+    "jest": "23.1.0",
+    "react-test-renderer": "16.3.1",
+    "reactotron-react-native": "^1.14.0"
+  },
+  "jest": {
+    "preset": "react-native"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhaydgarg/CurrencyConverter.git"
+  },
+  "keywords": [
+    "currency",
+    "converter",
+    "simple",
+    "minimal"
+  ],
+  "author": "Abhay Garg",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/abhaydgarg/CurrencyConverter/issues"
+  },
+  "homepage": "https://github.com/abhaydgarg/CurrencyConverter#readme"
+}
