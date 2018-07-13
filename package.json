@@ -6,13 +6,13 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "resetCacheAndStart": "npm start -- --reset-cache",
-    "ios": "react-native run-ios --simulator=\"iPhone 8 Plus\"",
+    "ios": "react-native run-ios --simulator=\"iPhone X\"",
     "android": "react-native run-android",
     "debug": "react-devtools",
     "test": "jest",
     "androidReleaseTest": "react-native run-android --variant=release",
     "androidBuildApk": "cd android && ./gradlew assembleRelease",
-    "iosReleaseTestOnSim": "react-native run-ios --simulator=\"iPhone 8 Plus\" --configuration Release",
+    "iosReleaseTestOnSim": "react-native run-ios --simulator=\"iPhone X\" --configuration Release",
     "iosReleaseTestOnDevice": "react-native run-ios --device iPhone --configuration Release"
   },
   "dependencies": {
