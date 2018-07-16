@@ -12,8 +12,7 @@
     "test": "jest",
     "androidReleaseTest": "react-native run-android --variant=release",
     "androidBuildApk": "cd android && ./gradlew assembleRelease",
-    "iosReleaseTestOnSim": "react-native run-ios --simulator=\"iPhone X\" --configuration Release",
-    "iosReleaseTestOnDevice": "react-native run-ios --device iPhone --configuration Release"
+    "iosReleaseTestOnSim": "react-native run-ios --simulator=\"iPhone X\" --configuration Release"
   },
   "dependencies": {
     "@abhaydgarg/is": "^1.0.0",
