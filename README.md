@@ -16,7 +16,7 @@ Minimal currency converter by using React Native.
 
 ### Google Play Store
 
-[![Google Play Store](doc/img/google-play.png)](https://play.google.com/store/apps/details?id=me.abhaydgarg.currencyconverter&hl=en)
+[![Google Play Store](Resources/img/google-play.png)](https://play.google.com/store/apps/details?id=me.abhaydgarg.currencyconverter&hl=en)
 
 ### Apple Store
 
