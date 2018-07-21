@@ -3,6 +3,7 @@ import { Text } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import * as Animatable from 'react-native-animatable';
 
+import normalize from '../../../Lib/normalizeText';
 import { styles } from '../../../Styles';
 
 const ShakeFeatureInfo = () => (
@@ -15,12 +16,12 @@ const ShakeFeatureInfo = () => (
     >
       <Icon
         name='ios-phone-portrait-outline'
-        size={20}
+        size={normalize(20)}
         color={styles.vars.colors.white}
       />
     </Animatable.View>
     <Text style={styles.home.shakeFeatureInfoText}>
-      Countries can also be swapped by shaking phone.
+      Shake phone to swap countries.
       <Text style={{ fontStyle: 'italic' }}> Give it a try !</Text>
     </Text>
   </Animatable.View>

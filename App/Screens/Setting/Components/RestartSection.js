@@ -25,7 +25,7 @@ export default class RestartSection extends Component {
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.isRestartRequired !== prevState.isRestartRequired) {
       return {
-        isRestartRequired: nextProps.isRestartRequired
+        isRestartRequired: true
       };
     }
     return null;

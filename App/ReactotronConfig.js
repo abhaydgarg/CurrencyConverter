@@ -6,7 +6,7 @@ import Reactotron, {
 
 Reactotron
   .configure({
-    name: 'CurrencyConverter App'
+    name: 'CurrencyConverter'
   })
   .useReactNative()
   .use(trackGlobalErrors())

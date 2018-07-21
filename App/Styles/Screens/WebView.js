@@ -14,8 +14,8 @@ export default function (vars) {
     },
     errorText: {
       color: vars.colors.secondary,
-      fontSize: 12,
-      fontWeight: 'bold',
+      fontSize: vars.fontSize.small,
+      fontFamily: vars.fonts.base,
       marginBottom: 10
     }
   });

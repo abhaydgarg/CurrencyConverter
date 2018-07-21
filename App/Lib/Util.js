@@ -1,3 +1,5 @@
+import formatNum from 'simple-format-number';
+
 export default class Util {
 
   // empty function
@@ -46,22 +48,7 @@ export default class Util {
 
   // format currency
   static currencyFormat(num) {
-    let str = '',
-      out = '',
-      parts = [];
-
-    if (num.toString().indexOf('.') !== -1) {
-      str = num.toFixed(3);
-    } else {
-      str = num.toString();
-    }
-
-    parts = str.split('.');
-    out = parts[0].replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
-    if (parts.length > 1) {
-      out += '.' + parts[1];
-    }
-    return out;
+    return formatNum(num);
   }
 
 }

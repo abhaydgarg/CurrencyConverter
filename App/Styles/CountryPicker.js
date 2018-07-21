@@ -22,7 +22,8 @@ export default function (vars) {
       borderRadius: 10
     },
     cancelButtonTextStyle: {
-      color: vars.colors.white
+      color: vars.colors.white,
+      fontFamily: vars.fonts.numeric
     },
     filterTextInputContainerStyle: {
       borderBottomWidth: .5,
@@ -53,14 +54,15 @@ export default function (vars) {
       marginLeft: 10
     },
     nameText: {
-      fontSize: 15,
-      color: vars.colors.secondary
+      fontSize: vars.fontSize.regular,
+      color: vars.colors.secondary,
+      fontFamily: vars.fonts.base
     },
     currencySymbol: {
       marginRight: 10,
       color: vars.colors.primary,
-      fontWeight: 'bold',
-      fontSize: 17
+      fontSize: vars.fontSize.large,
+      fontFamily: vars.fonts.bold
     }
   });
 }

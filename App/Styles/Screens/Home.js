@@ -1,5 +1,6 @@
-import { StyleSheet, Platform } from 'react-native';
+import { StyleSheet, Platform, Dimensions } from 'react-native';
 import { getStatusBarHeight } from 'react-native-status-bar-height';
+import DeviceInfo from 'react-native-device-info';
 
 export default function (vars) {
   return StyleSheet.create({
@@ -23,7 +24,8 @@ export default function (vars) {
       marginRight: 10
     },
     topContainerHeaderDate: {
-      fontSize: 12
+      fontFamily: vars.fonts.bold,
+      fontSize: vars.fontSize.small
     },
     topContainerSymbol: {
       flexDirection: 'row',
@@ -35,38 +37,40 @@ export default function (vars) {
       justifyContent: 'center',
       alignItems: 'center',
       width: 55,
-      height: 40,
+      height: 30,
+      paddingHorizontal: 5,
       borderTopLeftRadius: 5,
       borderTopRightRadius: 5,
       backgroundColor: vars.colors.white
     },
     topContainerSymbolText: {
-      fontSize: 18,
-      fontWeight: 'bold'
+      fontFamily: vars.fonts.bold,
+      fontSize: vars.fontSize.large
     },
     topContainerBody: {
       flex: 1,
-      flexDirection: 'row',
+      alignItems: 'center',
       justifyContent: 'center',
+      paddingHorizontal: 10
+    },
+    topContinerBodyContent: {
+      flexDirection: 'row',
       alignItems: 'center'
     },
     topContainerBodyInput: {
-      width: 180,
-      marginLeft: 10,
+      flex: 1,
+      marginHorizontal: 10,
+      fontFamily: vars.fonts.numeric,
       color: vars.colors.white,
-      fontSize: 30,
+      fontSize: vars.fontSize.input,
       borderColor: vars.colors.white,
       borderBottomWidth: 1,
       padding: 0,
-      marginTop: Platform.OS === 'ios' ? 0 : -7
+      marginTop: 6.5
     },
     topContainerSendIcon: {
-      marginLeft: 10,
-      marginTop: 20
     },
     topContainerActivityIndicator: {
-      marginLeft: 10,
-      marginTop: 20
     },
     bottomContainerSymbol: {
       flexDirection: 'row',
@@ -78,52 +82,63 @@ export default function (vars) {
       justifyContent: 'center',
       alignItems: 'center',
       width: 55,
-      height: 40,
+      height: 30,
+      paddingHorizontal: 5,
       borderBottomLeftRadius: 5,
       borderBottomRightRadius: 5,
       backgroundColor: vars.colors.primary
     },
     bottomContainerSymbolText: {
-      fontSize: 18,
-      fontWeight: 'bold'
+      fontFamily: vars.fonts.bold,
+      fontSize: vars.fontSize.large
     },
     bottomContainerBody: {
       flex: 1,
       flexDirection: 'row',
-      justifyContent: 'center',
-      alignItems: 'center'
+      alignItems: 'center',
+      paddingHorizontal: 10
     },
     bottomContainerBodyText: {
-      width: 220,
+      flex: 1,
       marginLeft: 10,
-      fontSize: 16,
-      fontWeight: 'bold'
+      fontFamily: vars.fonts.numeric,
+      fontSize: vars.fontSize.input,
+      marginTop: 6.5
     },
-    bottomXeContainer: {
-      padding: 10
+    xeContainer: {
+      paddingHorizontal: 10,
+      paddingTop: 10,
+      paddingBottom: DeviceInfo.getModel() === 'iPhone X' ? 25 : 10
     },
-    bottomXeContainerBody: {
+    xeContainerBody: {
       justifyContent: 'center',
       alignItems: 'center'
     },
-    bottomXeContainerBodyImage: {
+    xeContainerBodyImage: {
       width: 42,
       height: 34
     },
-    bottomXeContainerBodyText: {
+    xeContainerBodyText: {
       color: vars.colors.black,
-      fontSize: 12
+      fontSize: vars.fontSize.medium,
+      fontFamily: vars.fonts.bold
     },
     shakeFeatureInfoContainer: {
+      position: 'absolute',
+      bottom: 0,
+      left: 0,
+      width: Dimensions.get('window').width,
       flexDirection: 'row',
       justifyContent: 'center',
       alignItems: 'center',
       backgroundColor: vars.colors.black,
       paddingTop: 5,
-      paddingBottom: 5
+      paddingBottom: DeviceInfo.getModel() === 'iPhone X' ? 15 : 5,
+      paddingHorizontal: 5
     },
     shakeFeatureInfoText: {
-      fontSize: 12,
+      fontSize: vars.fontSize.small,
+      fontFamily: vars.fonts.base,
       color: vars.colors.white,
       marginLeft: 15
     }

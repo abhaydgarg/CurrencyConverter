@@ -1,11 +1,12 @@
 /* eslint-disable no-invalid-this */
-import React, { Component } from 'react';
-import { View, StatusBar, ActivityIndicator, TouchableOpacity } from 'react-native';
+import React, { Component, Fragment } from 'react';
+import { View, StatusBar, ActivityIndicator, TouchableOpacity, ScrollView, Keyboard, Platform } from 'react-native';
 import PropTypes from 'prop-types';
 import ModalFilterPicker from 'react-native-modal-filter-picker';
 import Icon from 'react-native-vector-icons/Feather';
 import DeviceInfo from 'react-native-device-info';
 
+import normalize from '../../Lib/normalizeText';
 import { styles } from '../../Styles';
 import Countries from '../../Data/Countries';
 import Messenger from '../../Lib/Messenger';
@@ -25,7 +26,7 @@ export default class SettingScreen extends Component {
     let headerRight = null;
     let saveIcon = (
       <TouchableOpacity hitSlop={{ top: 10, bottom: 10, left: 25, right: 25 }} onPress={navigation.state.params ? navigation.state.params.save : null}>
-        <Icon name='save' size={20} color={styles.vars.colors.white} />
+        <Icon name='save' size={normalize(20)} color={styles.vars.colors.white} />
       </TouchableOpacity>
     );
 
@@ -53,7 +54,9 @@ export default class SettingScreen extends Component {
 
   constructor(props) {
     super(props);
-
+    if(Platform.OS === 'android') {
+      Keyboard.dismiss();
+    }
     let baseCountry = Countries[this.props.screenProps.baseCountryCode],
       secondaryCountry = Countries[this.props.screenProps.secondaryCountryCode];
 
@@ -162,37 +165,43 @@ export default class SettingScreen extends Component {
 
   render() {
     return (
-      <View style={styles.setting.container}>
-        <RestartSection
-          isRestartRequired={this.state.isRestartRequired}
-        />
-        <BaseCurrencySection
-          chooseCountry={this.chooseBaseCountry}
-          baseCountryCode={this.state.baseCountryCode}
-          baseCountryName={this.state.baseCountryName}
-          baseCurrencySymbol={this.state.baseCurrencySymbol}
-        />
-        <SecondaryCurrencySection
-          chooseCountry={this.chooseSecondaryCountry}
-          secondaryCountryCode={this.state.secondaryCountryCode}
-          secondaryCountryName={this.state.secondaryCountryName}
-          secondaryCurrencySymbol={this.state.secondaryCurrencySymbol}
-        />
-        <ThemeSection
-          chooseTheme={this.chooseTheme}
-          selectedTheme={this.state.theme}
-        />
-        <AboutSection
-          appVersion={DeviceInfo.getVersion()}
-          appName={DeviceInfo.getApplicationName()}
-          appBuildNumber={DeviceInfo.getBuildNumber()}
-          appBundleId={DeviceInfo.getBundleId()}
-        />
+      <Fragment>
+        <ScrollView
+          style={styles.setting.container}
+          contentContainerStyle={styles.setting.contentContainerStyle}
+        >
+          <RestartSection
+            isRestartRequired={this.state.isRestartRequired}
+          />
+          <BaseCurrencySection
+            chooseCountry={this.chooseBaseCountry}
+            baseCountryCode={this.state.baseCountryCode}
+            baseCountryName={this.state.baseCountryName}
+            baseCurrencySymbol={this.state.baseCurrencySymbol}
+          />
+          <SecondaryCurrencySection
+            chooseCountry={this.chooseSecondaryCountry}
+            secondaryCountryCode={this.state.secondaryCountryCode}
+            secondaryCountryName={this.state.secondaryCountryName}
+            secondaryCurrencySymbol={this.state.secondaryCurrencySymbol}
+          />
+          <ThemeSection
+            chooseTheme={this.chooseTheme}
+            selectedTheme={this.state.theme}
+          />
+          <AboutSection
+            appVersion={DeviceInfo.getVersion()}
+            appName={DeviceInfo.getApplicationName()}
+            appBuildNumber={DeviceInfo.getBuildNumber()}
+            appBundleId={DeviceInfo.getBundleId()}
+          />
+        </ScrollView>
         <ModalFilterPicker
           visible={this.state.isCountryPickerVisible}
           modal={{ animationType: 'slide', transparent: true, onRequestClose: Util.emptyFunc }}
           onSelect={Util.emptyFunc}
           onCancel={this.onCountryPickerCancel}
+          cancelButtonText='CLOSE'
           options={this.countryPickerData}
           overlayStyle={styles.countryPicker.overlayStyle}
           cancelButtonStyle={styles.countryPicker.cancelButtonStyle}
@@ -201,7 +210,7 @@ export default class SettingScreen extends Component {
           listContainerStyle={styles.countryPicker.listContainerStyle}
           renderOption={this.renderCountryPickerOption}
         />
-      </View>
+      </Fragment>
     );
   }
 }

@@ -1,9 +1,10 @@
 /* eslint-disable no-invalid-this, react/jsx-no-bind */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Text, View, TouchableOpacity, Image } from 'react-native';
+import { Text, View, TouchableOpacity, ImageBackground } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
+import normalize from '../../../Lib/normalizeText'
 import { styles } from '../../../Styles';
 import Colors from '../../../Data/Colors';
 
@@ -42,19 +43,13 @@ export default class ThemeSection extends Component {
           activeOpacity={0.7}
           onPress={() => chooseTheme(key)}
         >
-          <Image
+          <ImageBackground
             style={styles.setting.themeImage}
             source={Colors[key].img}
-          />
-          <Text style={[styles.setting.themeName, { color: (isSelected ? styles.vars.colors.primary : styles.vars.colors.secondary), fontWeight: (isSelected ? 'bold' : 'normal') }]}>
-            <Icon
-              name={isSelected ? 'md-checkbox-outline' : 'ios-color-fill-outline'}
-              size={10}
-              color={isSelected ? styles.vars.colors.primary : styles.vars.colors.secondary}
-            />
-            {' ' + Colors[key].name}
-          </Text>
-        </TouchableOpacity >
+          >
+          {( isSelected ? <Icon name='md-checkbox-outline' size={normalize(17)} color={styles.vars.colors.white} style={styles.setting.themeIcon} /> : null)}
+          </ImageBackground>
+        </TouchableOpacity>
       );
     });
 
@@ -66,7 +61,7 @@ export default class ThemeSection extends Component {
       <View style={styles.setting.section}>
         <View style={styles.setting.sectionHeader}>
           <Text style={styles.setting.sectionHeaderTitle}>
-            <Icon name='ios-color-wand' size={11} color={styles.vars.colors.primary} /> Theme
+            <Icon name='ios-color-wand' size={normalize(17)} color={styles.vars.colors.primary} /> Theme
           </Text>
         </View>
         <View style={styles.setting.themeBody}>

@@ -17,17 +17,17 @@ export default {
     name: 'Orange fun',
     img: require('../Assets/Img/orange-fun.jpg')
   },
-  crystalClear: {
-    primary: '#159957',
-    secondary: '#155799',
-    name: 'Crystal clear',
-    img: require('../Assets/Img/crystal-clear.jpg')
-  },
   skyline: {
     primary: '#2B32B2',
     secondary: '#1488CC',
     name: 'Skyline',
     img: require('../Assets/Img/skyline.jpg')
+  },
+  crystalClear: {
+    primary: '#159957',
+    secondary: '#155799',
+    name: 'Crystal clear',
+    img: require('../Assets/Img/crystal-clear.jpg')
   },
   twitch: {
     primary: '#6441A5',

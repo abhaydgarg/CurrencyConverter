@@ -1,5 +1,5 @@
 /* eslint-disable no-invalid-this */
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { StatusBar, KeyboardAvoidingView, Platform } from 'react-native';
 import ModalFilterPicker from 'react-native-modal-filter-picker';
@@ -17,6 +17,7 @@ import CountryPickerOption from '../../Shared/CountryPickerOption';
 import Top from './Components/Top';
 import Bottom from './Components/Bottom';
 import ShakeFeatureInfo from './Components/ShakeFeatureInfo';
+import XE from './Components/XE';
 
 export default class HomeScreen extends Component {
 
@@ -181,7 +182,7 @@ export default class HomeScreen extends Component {
     text = text.trim();
     text = Util.keepNumberAndDecimal(text);
     text = Util.onlyOneDecimal(text);
-    return text;
+    return text.toString();
   }
 
   baseCurrencyChange = (text) => {
@@ -218,7 +219,7 @@ export default class HomeScreen extends Component {
             showXE: false
           });
         } else {
-          throw new Error('Converted value is not a number');
+          throw new Error('Non numeric value');
         }
       }).catch((err) => {
         if (__DEV__) {
@@ -230,8 +231,13 @@ export default class HomeScreen extends Component {
           });
           Messenger.warning('No internet connection');
         } else {
+          if (__DEV__) {
+            Messenger.error(err.message);
+          } else {
+            Messenger.error('Something went wrong');
+          }
           this.setState({
-            secondaryValue: 'SOMETHING WENT WRONG!',
+            secondaryValue: '0.00',
             showXE: true,
             fetching: false
           });
@@ -252,33 +258,37 @@ export default class HomeScreen extends Component {
 
   render() {
     return (
-      <KeyboardAvoidingView
-        style={styles.common.container}
-        behavior={Platform.OS === 'ios' ? 'padding' : null}
-        keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 0}
-      >
-        <Top
-          linearGradientPrimaryColor={this.state.linearGradientPrimaryColor}
-          linearGradientSecondaryColor={this.state.linearGradientSecondaryColor}
-          gotoFavScreen={this.gotoFavScreen}
-          swapCountries={this.swapCountries}
-          chooseCountry={this.chooseBaseCountry}
-          baseCurrencyChange={this.baseCurrencyChange}
-          baseCurrencyConvert={this.baseCurrencyConvert}
-          baseCurrencySymbol={this.state.baseCurrencySymbol}
-          baseCountryCode={this.state.baseCountryCode}
-          baseValue={this.state.baseValue}
-          runTopFlagAnimation={this.state.runTopFlagAnimation}
-          resetFlagAnimationState={this.resetFlagAnimationState}
-          fetching={this.state.fetching}
-        />
-        <Bottom
-          chooseCountry={this.chooseSecondaryCountry}
-          secondaryCurrencySymbol={this.state.secondaryCurrencySymbol}
-          secondaryCountryCode={this.state.secondaryCountryCode}
-          secondaryValue={this.state.secondaryValue}
-          runBottomFlagAnimation={this.state.runBottomFlagAnimation}
-          resetFlagAnimationState={this.resetFlagAnimationState}
+      <Fragment>
+        <KeyboardAvoidingView
+          style={styles.common.container}
+          behavior={Platform.OS === 'ios' ? 'padding' : null}
+          keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 0}
+        >
+          <Top
+            linearGradientPrimaryColor={this.state.linearGradientPrimaryColor}
+            linearGradientSecondaryColor={this.state.linearGradientSecondaryColor}
+            gotoFavScreen={this.gotoFavScreen}
+            swapCountries={this.swapCountries}
+            chooseCountry={this.chooseBaseCountry}
+            baseCurrencyChange={this.baseCurrencyChange}
+            baseCurrencyConvert={this.baseCurrencyConvert}
+            baseCurrencySymbol={this.state.baseCurrencySymbol}
+            baseCountryCode={this.state.baseCountryCode}
+            baseValue={this.state.baseValue}
+            runTopFlagAnimation={this.state.runTopFlagAnimation}
+            resetFlagAnimationState={this.resetFlagAnimationState}
+            fetching={this.state.fetching}
+          />
+          <Bottom
+            chooseCountry={this.chooseSecondaryCountry}
+            secondaryCurrencySymbol={this.state.secondaryCurrencySymbol}
+            secondaryCountryCode={this.state.secondaryCountryCode}
+            secondaryValue={this.state.secondaryValue}
+            runBottomFlagAnimation={this.state.runBottomFlagAnimation}
+            resetFlagAnimationState={this.resetFlagAnimationState}
+          />
+        </KeyboardAvoidingView>
+        <XE
           showXE={this.state.showXE}
           openWebView={this.openWebView}
         />
@@ -288,6 +298,7 @@ export default class HomeScreen extends Component {
           modal={{ animationType: 'slide', transparent: true, onRequestClose: Util.emptyFunc }}
           onSelect={Util.emptyFunc}
           onCancel={this.onCountryPickerCancel}
+          cancelButtonText='CLOSE'
           options={this.countryPickerData}
           overlayStyle={styles.countryPicker.overlayStyle}
           cancelButtonStyle={styles.countryPicker.cancelButtonStyle}
@@ -296,7 +307,7 @@ export default class HomeScreen extends Component {
           listContainerStyle={styles.countryPicker.listContainerStyle}
           renderOption={this.renderCountryPickerOption}
         />
-      </KeyboardAvoidingView>
+      </Fragment>
     );
   }
 }

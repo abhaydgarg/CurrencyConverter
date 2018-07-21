@@ -1,6 +1,9 @@
 import Toast from 'react-native-root-toast';
+import DeviceInfo from 'react-native-device-info';
 
 import { styles } from '../Styles';
+
+const POSITION = DeviceInfo.getModel() === 'iPhone X' ? 90 : 70;
 
 export default class Messenger {
 
@@ -8,7 +11,7 @@ export default class Messenger {
   static error(message) {
     return Toast.show(message, {
       duration: Toast.durations.LONG,
-      position: 70,
+      position: POSITION,
       shadow: false,
       animation: true,
       opacity: 1,
@@ -22,7 +25,7 @@ export default class Messenger {
   static warning(message) {
     return Toast.show(message, {
       duration: Toast.durations.LONG,
-      position: 70,
+      position: POSITION,
       shadow: false,
       animation: true,
       opacity: 1,
@@ -36,7 +39,7 @@ export default class Messenger {
   static info(message) {
     return Toast.show(message, {
       duration: Toast.durations.LONG,
-      position: 70,
+      position: POSITION,
       shadow: false,
       animation: true,
       opacity: 1,

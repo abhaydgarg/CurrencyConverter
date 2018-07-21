@@ -4,6 +4,7 @@ import { Text, View, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Flag from 'react-native-flags';
 
+import normalize from '../../../Lib/normalizeText'
 import { styles } from '../../../Styles';
 
 export default class BaseCurrencySection extends Component {
@@ -34,7 +35,7 @@ export default class BaseCurrencySection extends Component {
       <View style={styles.setting.section}>
         <View style={styles.setting.sectionHeader}>
           <Text style={styles.setting.sectionHeaderTitle}>
-            <Icon name='ios-cash-outline' size={11} color={styles.vars.colors.primary} /> Base currency
+            <Icon name='ios-cash-outline' size={normalize(17)} color={styles.vars.colors.primary} /> Base currency
           </Text>
         </View>
         <TouchableOpacity style={styles.setting.sectionBody} activeOpacity={0.7} onPress={this.props.chooseCountry}>

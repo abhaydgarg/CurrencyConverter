@@ -1,4 +1,5 @@
 import { StyleSheet, Platform } from 'react-native';
+import DeviceInfo from 'react-native-device-info';
 
 export default function (vars) {
   return StyleSheet.create({
@@ -6,8 +7,10 @@ export default function (vars) {
       marginRight: 15
     },
     container: {
-      flex: 1,
-      backgroundColor: vars.colors.white,
+      backgroundColor: vars.colors.white
+    },
+    contentContainerStyle: {
+      flexGrow: 1,
       paddingLeft: 15,
       paddingRight: 15
     },
@@ -23,8 +26,8 @@ export default function (vars) {
       marginRight: -15
     },
     restartText: {
-      fontSize: 14,
-      fontWeight: 'bold',
+      fontSize: vars.fontSize.medium,
+      fontFamily: vars.fonts.bold,
       color: vars.colors.white,
       marginTop: 3,
       marginLeft: Platform.OS === 'ios' ? 0 : 10
@@ -37,7 +40,8 @@ export default function (vars) {
     },
     sectionHeaderTitle: {
       color: vars.colors.primary,
-      fontSize: 11
+      fontFamily: vars.fonts.numericBold,
+      fontSize: vars.fontSize.large
     },
     sectionBody: {
       flexDirection: 'row',
@@ -52,74 +56,75 @@ export default function (vars) {
     currencyName: {
       flex: 1,
       flexWrap: 'wrap',
-      marginLeft: 10
+      marginLeft: 10,
     },
     currencyNameText: {
-      fontSize: 15,
-      color: vars.colors.secondary
+      fontSize: vars.fontSize.regular,
+      color: vars.colors.secondary,
+      fontFamily: vars.fonts.base
     },
     currencySymbol: {
       marginRight: 10,
       color: vars.colors.primary,
-      fontWeight: 'bold',
-      fontSize: 17
+      fontSize: vars.fontSize.large,
+      fontFamily: vars.fonts.bold
     },
     themeBody: {
+      flex: 1,
       flexDirection: 'row',
       flexWrap: 'wrap',
-      alignItems: 'flex-start',
-      justifyContent: 'flex-start',
-      marginTop: 10,
+      marginTop: 10
     },
     theme: {
-      alignItems: 'center',
       marginBottom: 15,
-      paddingRight: 10
+      marginRight: 10,
+      alignItems: 'center'
     },
     themeImage: {
-      width: 80,
-      height: 50,
-      borderRadius: 10
+      width: 70,
+      height: 40,
+      alignItems: 'center',
+      justifyContent: 'center'
     },
-    themeName: {
-      color: vars.colors.secondary,
-      fontSize: 10,
-      marginTop: 5,
-      fontStyle: 'italic'
+    themeIcon: {
+      fontWeight: 'bold'
     },
     aboutSection: {
       flex: 1,
       alignItems: 'center',
       justifyContent: 'flex-end',
-      paddingBottom: 30
+      marginTop: 20,
+      paddingBottom: DeviceInfo.getModel() === 'iPhone X' ? 25 : 10
     },
     aboutSectionImage: {
-      width: 25,
-      height: 25
+      width: 30,
+      height: 30
     },
     aboutSectionBody: {
       flexDirection: 'row'
     },
     aboutSectionAppName: {
-      fontWeight: 'bold',
-      fontSize: 12,
+      fontFamily: vars.fonts.bold,
+      fontSize: vars.fontSize.medium,
       color: vars.colors.black,
       marginRight: 2
     },
     aboutSectionAppVersion: {
-      fontSize: 12,
+      fontFamily: vars.fonts.base,
+      fontSize: vars.fontSize.small,
       color: vars.colors.black,
       marginRight: 2
     },
     aboutSectionAppBuildNumber: {
-      fontSize: 12,
+      fontFamily: vars.fonts.base,
+      fontSize: vars.fontSize.small,
       color: vars.colors.black
     },
     aboutSectionAppDevMode: {
-      fontWeight: 'bold',
-      fontSize: 10,
+      fontFamily: vars.fonts.bold,
+      fontSize: vars.fontSize.tiny,
       color: vars.colors.white,
-      backgroundColor: vars.colors.warning,
+      backgroundColor: vars.colors.info,
       padding: 5,
       marginTop: 5
     }
