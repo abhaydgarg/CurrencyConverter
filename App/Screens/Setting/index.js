@@ -54,9 +54,7 @@ export default class SettingScreen extends Component {
 
   constructor(props) {
     super(props);
-    if(Platform.OS === 'android') {
-      Keyboard.dismiss();
-    }
+
     let baseCountry = Countries[this.props.screenProps.baseCountryCode],
       secondaryCountry = Countries[this.props.screenProps.secondaryCountryCode];
 
@@ -79,6 +77,15 @@ export default class SettingScreen extends Component {
       saving: false,
       save: this.save,
     });
+  }
+
+  componentDidMount() {
+    // Keyboard if open on Home screen
+    // then it does not close when
+    // navigate to this (Setting) screen
+    if (Platform.OS === 'android') {
+      Keyboard.dismiss();
+    }
   }
 
   onCountryPickerSelect = (picked) => {

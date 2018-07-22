@@ -26,7 +26,9 @@ export default class Top extends Component {
     baseCurrencySymbol: PropTypes.string.isRequired,
     runTopFlagAnimation: PropTypes.bool.isRequired,
     resetFlagAnimationState: PropTypes.func.isRequired,
-    fetching: PropTypes.bool.isRequired
+    fetching: PropTypes.bool.isRequired,
+    getTextInputRef: PropTypes.func.isRequired
+
   };
 
   constructor(props) {
@@ -40,6 +42,7 @@ export default class Top extends Component {
 
   componentDidMount() {
     this.flagAndInputViewOpacityAnimation();
+    this.props.getTextInputRef(this.textInputRef);
   }
 
   componentDidUpdate() {
@@ -69,17 +72,8 @@ export default class Top extends Component {
   }
 
   onSend = () => {
-    // Workaround to close keyboard
-    // which stuck when choose country
-    // from model
-    this.textInputRef.current.focus();
     Keyboard.dismiss();
     this.props.baseCurrencyConvert();
-  }
-
-  dismissKeyboard = () => {
-    this.textInputRef.current.focus();
-    Keyboard.dismiss();
   }
 
   sendButton = () => {
@@ -112,7 +106,7 @@ export default class Top extends Component {
 
   render() {
     return (
-      <TouchableWithoutFeedback onPress={this.dismissKeyboard} accessible={false}>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
         <LinearGradient
           colors={[this.props.linearGradientPrimaryColor, this.props.linearGradientSecondaryColor]}
           start={{ x: 1, y: 0 }}
@@ -141,26 +135,26 @@ export default class Top extends Component {
           <Animated.View style={[styles.home.topContainerBody, { opacity: this.state.flagAndInputViewOpacity }]}>
             <View style={styles.home.topContinerBodyContent}>
               <TouchableOpacity onPress={this.props.chooseCountry}>
-              <Animated.View style={[{backgroundColor: 'transparent'}, { transform: [{ scale: this.state.flagSpringValue }] }]}>
-                <Flag
-                  code={this.props.baseCountryCode}
-                  size={64}
-                />
-              </Animated.View>
-            </TouchableOpacity>
-            <TextInput
-              ref={this.textInputRef}
-              underlineColorAndroid='transparent'
-              placeholder='0'
-              placeholderTextColor={styles.vars.colors.white}
-              value={this.props.baseValue}
-              keyboardType='decimal-pad'
-              returnKeyType='done'
-              onChangeText={this.props.baseCurrencyChange}
-              onSubmitEditing={this.props.baseCurrencyConvert}
-              style={styles.home.topContainerBodyInput}
-            />
-            {this.sendButton()}
+                <Animated.View style={[{ backgroundColor: 'transparent' }, { transform: [{ scale: this.state.flagSpringValue }] }]}>
+                  <Flag
+                    code={this.props.baseCountryCode}
+                    size={64}
+                  />
+                </Animated.View>
+              </TouchableOpacity>
+              <TextInput
+                ref={this.textInputRef}
+                underlineColorAndroid='transparent'
+                placeholder='0'
+                placeholderTextColor={styles.vars.colors.white}
+                value={this.props.baseValue}
+                keyboardType='decimal-pad'
+                returnKeyType='done'
+                onChangeText={this.props.baseCurrencyChange}
+                onSubmitEditing={this.props.baseCurrencyConvert}
+                style={styles.home.topContainerBodyInput}
+              />
+              {this.sendButton()}
             </View>
           </Animated.View>
           <View style={styles.home.topContainerSymbol}>

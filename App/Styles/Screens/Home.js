@@ -36,16 +36,15 @@ export default function (vars) {
     topContainerSymbolView: {
       justifyContent: 'center',
       alignItems: 'center',
-      width: 55,
-      height: 30,
-      paddingHorizontal: 5,
+      width: 65,
+      height: 35,
       borderTopLeftRadius: 5,
       borderTopRightRadius: 5,
       backgroundColor: vars.colors.white
     },
     topContainerSymbolText: {
       fontFamily: vars.fonts.bold,
-      fontSize: vars.fontSize.large
+      fontSize: vars.fontSize.regular
     },
     topContainerBody: {
       flex: 1,
@@ -68,10 +67,8 @@ export default function (vars) {
       padding: 0,
       marginTop: 6.5
     },
-    topContainerSendIcon: {
-    },
-    topContainerActivityIndicator: {
-    },
+    topContainerSendIcon: {},
+    topContainerActivityIndicator: {},
     bottomContainerSymbol: {
       flexDirection: 'row',
       justifyContent: 'flex-end',
@@ -81,16 +78,15 @@ export default function (vars) {
     bottomContainerSymbolView: {
       justifyContent: 'center',
       alignItems: 'center',
-      width: 55,
-      height: 30,
-      paddingHorizontal: 5,
+      width: 65,
+      height: 35,
       borderBottomLeftRadius: 5,
       borderBottomRightRadius: 5,
       backgroundColor: vars.colors.primary
     },
     bottomContainerSymbolText: {
       fontFamily: vars.fonts.bold,
-      fontSize: vars.fontSize.large
+      fontSize: vars.fontSize.regular
     },
     bottomContainerBody: {
       flex: 1,

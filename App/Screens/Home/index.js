@@ -31,6 +31,9 @@ export default class HomeScreen extends Component {
 
     StatusBar.setBarStyle('light-content', true);
     this.countryPickerData = Util.getCountryPickerData(Countries);
+    // Base value TextInput reference
+    // get from Child component
+    this.textInputRef = null;
     this.state = {
       linearGradientPrimaryColor: styles.vars.colors.primary,
       linearGradientSecondaryColor: styles.vars.colors.secondary,
@@ -70,6 +73,19 @@ export default class HomeScreen extends Component {
 
   componentWillUnmount() {
     RNShakeEvent.removeEventListener('shake');
+  }
+
+  getTextInputRef = (ref) => {
+    this.textInputRef = ref;
+  }
+
+  textInputFocus = () => {
+    // Workaround to close keyboard
+    // which stuck (won't close) when choose country
+    // from modal or close modal
+    if (this.textInputRef) {
+      this.textInputRef.current.focus();
+    }
   }
 
   gotoFavScreen = () => {
@@ -134,6 +150,8 @@ export default class HomeScreen extends Component {
 
   onCountryPickerSelect = (picked) => {
 
+    this.textInputFocus();
+
     StatusBar.setBarStyle('light-content', true);
 
     let newState = {
@@ -154,7 +172,10 @@ export default class HomeScreen extends Component {
   }
 
   onCountryPickerCancel = () => {
+    this.textInputFocus();
+
     StatusBar.setBarStyle('light-content', true);
+
     this.setState({
       isCountryPickerVisible: false
     });
@@ -261,7 +282,7 @@ export default class HomeScreen extends Component {
       <Fragment>
         <KeyboardAvoidingView
           style={styles.common.container}
-          behavior={Platform.OS === 'ios' ? 'padding' : null}
+          behavior='padding'
           keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 0}
         >
           <Top
@@ -278,6 +299,7 @@ export default class HomeScreen extends Component {
             runTopFlagAnimation={this.state.runTopFlagAnimation}
             resetFlagAnimationState={this.resetFlagAnimationState}
             fetching={this.state.fetching}
+            getTextInputRef={this.getTextInputRef}
           />
           <Bottom
             chooseCountry={this.chooseSecondaryCountry}
