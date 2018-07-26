@@ -43,8 +43,8 @@ export default function (vars) {
       backgroundColor: vars.colors.white
     },
     topContainerSymbolText: {
-      fontFamily: vars.fonts.bold,
-      fontSize: vars.fontSize.large
+      fontWeight: 'bold',
+      fontSize: 23
     },
     topContainerBody: {
       flex: 1,
@@ -81,11 +81,12 @@ export default function (vars) {
       height: 40,
       borderBottomLeftRadius: 5,
       borderBottomRightRadius: 5,
-      backgroundColor: vars.colors.primary
+      backgroundColor: vars.colors.primary,
+      paddingHorizontal: 5
     },
     bottomContainerSymbolText: {
-      fontFamily: vars.fonts.bold,
-      fontSize: vars.fontSize.regular
+      fontWeight: 'bold',
+      fontSize: 23
     },
     bottomContainerBody: {
       flex: 1,
@@ -97,8 +98,7 @@ export default function (vars) {
       flex: 1,
       marginLeft: 10,
       fontFamily: vars.fonts.numeric,
-      fontSize: vars.fontSize.input,
-      marginTop: 5
+      fontSize: vars.fontSize.xxlarge
     },
     xeContainer: {
       paddingHorizontal: 10,
@@ -115,7 +115,7 @@ export default function (vars) {
     },
     xeContainerBodyText: {
       color: vars.colors.black,
-      fontSize: vars.fontSize.medium,
+      fontSize: vars.fontSize.regular,
       fontFamily: vars.fonts.base
     },
     shakeFeatureInfoContainer: {
@@ -132,7 +132,7 @@ export default function (vars) {
       paddingHorizontal: 5
     },
     shakeFeatureInfoText: {
-      fontSize: vars.fontSize.medium,
+      fontSize: vars.fontSize.regular,
       fontFamily: vars.fonts.numeric,
       color: vars.colors.white,
       marginLeft: 15

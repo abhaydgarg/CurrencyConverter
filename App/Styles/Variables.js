@@ -19,12 +19,14 @@ export default function (theme) {
       numeric: 'Iceberg-Regular'
     },
     fontSize: {
+      input: normalize(36),
+      xxlarge: normalize(28),
+      xlarge: normalize(23),
       large: normalize(17),
       regular: normalize(15),
       medium: normalize(13),
       small: normalize(11),
-      tiny: normalize(9),
-      input: normalize(30)
+      tiny: normalize(9)
     }
   };
 }

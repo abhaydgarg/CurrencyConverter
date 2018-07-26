@@ -26,10 +26,9 @@ export default function (vars) {
       marginRight: -15
     },
     restartText: {
-      fontSize: vars.fontSize.medium,
-      fontFamily: vars.fonts.numeric,
+      fontSize: vars.fontSize.regular,
+      fontFamily: vars.fonts.base,
       color: vars.colors.white,
-      marginTop: 3,
       marginLeft: Platform.OS === 'ios' ? 0 : 10
     },
     section: {
@@ -40,7 +39,7 @@ export default function (vars) {
     },
     sectionHeaderTitle: {
       color: vars.colors.primary,
-      fontFamily: vars.fonts.numeric,
+      fontFamily: vars.fonts.bold,
       fontSize: vars.fontSize.large
     },
     sectionBody: {
@@ -66,8 +65,8 @@ export default function (vars) {
     currencySymbol: {
       marginRight: 10,
       color: vars.colors.primary,
-      fontSize: vars.fontSize.large,
-      fontFamily: vars.fonts.bold
+      fontWeight: 'bold',
+      fontSize: vars.fontSize.large
     },
     themeBody: {
       flex: 1,
@@ -121,7 +120,7 @@ export default function (vars) {
       color: vars.colors.black
     },
     aboutSectionAppDevMode: {
-      fontFamily: vars.fonts.base,
+      fontFamily: vars.fonts.bold,
       fontSize: vars.fontSize.small,
       color: vars.colors.info
     }

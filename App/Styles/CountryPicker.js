@@ -23,8 +23,8 @@ export default function (vars) {
     },
     cancelButtonTextStyle: {
       color: vars.colors.white,
-      fontFamily: vars.fonts.numeric,
-      fontSize: vars.fontSize.medium
+      fontFamily: vars.fonts.bold,
+      fontSize: vars.fontSize.regular
     },
     filterTextInputContainerStyle: {
       borderBottomWidth: .5,
@@ -62,8 +62,8 @@ export default function (vars) {
     currencySymbol: {
       marginRight: 10,
       color: vars.colors.primary,
-      fontSize: vars.fontSize.large,
-      fontFamily: vars.fonts.bold
+      fontWeight: 'bold',
+      fontSize: vars.fontSize.large
     }
   });
 }
