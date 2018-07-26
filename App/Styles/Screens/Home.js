@@ -24,8 +24,8 @@ export default function (vars) {
       marginRight: 10
     },
     topContainerHeaderDate: {
-      fontFamily: vars.fonts.bold,
-      fontSize: vars.fontSize.small
+      fontFamily: vars.fonts.numeric,
+      fontSize: vars.fontSize.medium
     },
     topContainerSymbol: {
       flexDirection: 'row',
@@ -37,14 +37,14 @@ export default function (vars) {
       justifyContent: 'center',
       alignItems: 'center',
       width: 65,
-      height: 35,
+      height: 40,
       borderTopLeftRadius: 5,
       borderTopRightRadius: 5,
       backgroundColor: vars.colors.white
     },
     topContainerSymbolText: {
       fontFamily: vars.fonts.bold,
-      fontSize: vars.fontSize.regular
+      fontSize: vars.fontSize.large
     },
     topContainerBody: {
       flex: 1,
@@ -64,8 +64,7 @@ export default function (vars) {
       fontSize: vars.fontSize.input,
       borderColor: vars.colors.white,
       borderBottomWidth: 1,
-      padding: 0,
-      marginTop: 6.5
+      padding: 0
     },
     topContainerSendIcon: {},
     topContainerActivityIndicator: {},
@@ -79,7 +78,7 @@ export default function (vars) {
       justifyContent: 'center',
       alignItems: 'center',
       width: 65,
-      height: 35,
+      height: 40,
       borderBottomLeftRadius: 5,
       borderBottomRightRadius: 5,
       backgroundColor: vars.colors.primary
@@ -99,7 +98,7 @@ export default function (vars) {
       marginLeft: 10,
       fontFamily: vars.fonts.numeric,
       fontSize: vars.fontSize.input,
-      marginTop: 6.5
+      marginTop: 5
     },
     xeContainer: {
       paddingHorizontal: 10,
@@ -117,7 +116,7 @@ export default function (vars) {
     xeContainerBodyText: {
       color: vars.colors.black,
       fontSize: vars.fontSize.medium,
-      fontFamily: vars.fonts.bold
+      fontFamily: vars.fonts.base
     },
     shakeFeatureInfoContainer: {
       position: 'absolute',
@@ -133,8 +132,8 @@ export default function (vars) {
       paddingHorizontal: 5
     },
     shakeFeatureInfoText: {
-      fontSize: vars.fontSize.small,
-      fontFamily: vars.fonts.base,
+      fontSize: vars.fontSize.medium,
+      fontFamily: vars.fonts.numeric,
       color: vars.colors.white,
       marginLeft: 15
     }

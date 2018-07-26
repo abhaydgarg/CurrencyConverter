@@ -23,7 +23,8 @@ export default function (vars) {
     },
     cancelButtonTextStyle: {
       color: vars.colors.white,
-      fontFamily: vars.fonts.numeric
+      fontFamily: vars.fonts.numeric,
+      fontSize: vars.fontSize.medium
     },
     filterTextInputContainerStyle: {
       borderBottomWidth: .5,

@@ -22,7 +22,6 @@ const ShakeFeatureInfo = () => (
     </Animatable.View>
     <Text style={styles.home.shakeFeatureInfoText}>
       Shake phone to swap countries.
-      <Text style={{ fontStyle: 'italic' }}> Give it a try !</Text>
     </Text>
   </Animatable.View>
 );

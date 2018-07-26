@@ -27,7 +27,7 @@ export default function (vars) {
     },
     restartText: {
       fontSize: vars.fontSize.medium,
-      fontFamily: vars.fonts.bold,
+      fontFamily: vars.fonts.numeric,
       color: vars.colors.white,
       marginTop: 3,
       marginLeft: Platform.OS === 'ios' ? 0 : 10
@@ -40,7 +40,7 @@ export default function (vars) {
     },
     sectionHeaderTitle: {
       color: vars.colors.primary,
-      fontFamily: vars.fonts.numericBold,
+      fontFamily: vars.fonts.numeric,
       fontSize: vars.fontSize.large
     },
     sectionBody: {
@@ -97,36 +97,33 @@ export default function (vars) {
       paddingBottom: DeviceInfo.getModel() === 'iPhone X' ? 25 : 10
     },
     aboutSectionImage: {
-      width: 30,
-      height: 30
+      width: 40,
+      height: 40
     },
     aboutSectionBody: {
       flexDirection: 'row'
     },
     aboutSectionAppName: {
-      fontFamily: vars.fonts.bold,
-      fontSize: vars.fontSize.medium,
+      fontFamily: vars.fonts.numeric,
+      fontSize: vars.fontSize.regular,
       color: vars.colors.black,
       marginRight: 2
     },
     aboutSectionAppVersion: {
-      fontFamily: vars.fonts.base,
-      fontSize: vars.fontSize.small,
+      fontFamily: vars.fonts.numeric,
+      fontSize: vars.fontSize.regular,
       color: vars.colors.black,
       marginRight: 2
     },
     aboutSectionAppBuildNumber: {
-      fontFamily: vars.fonts.base,
-      fontSize: vars.fontSize.small,
+      fontFamily: vars.fonts.numeric,
+      fontSize: vars.fontSize.regular,
       color: vars.colors.black
     },
     aboutSectionAppDevMode: {
-      fontFamily: vars.fonts.bold,
-      fontSize: vars.fontSize.tiny,
-      color: vars.colors.white,
-      backgroundColor: vars.colors.info,
-      padding: 5,
-      marginTop: 5
+      fontFamily: vars.fonts.base,
+      fontSize: vars.fontSize.small,
+      color: vars.colors.info
     }
   });
 }

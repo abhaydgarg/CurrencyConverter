@@ -14,10 +14,10 @@ const AboutSection = ({ appVersion, appName, appBuildNumber, appBundleId }) => (
     <View style={styles.setting.aboutSectionBody}>
       <Text style={styles.setting.aboutSectionAppName}>{appName}</Text>
       <Text style={styles.setting.aboutSectionAppVersion}>{appVersion}</Text>
-      <Text style={styles.setting.aboutSectionAppBuildNumber}>({appBuildNumber})</Text>
+      <Text style={styles.setting.aboutSectionAppBuildNumber}>-{appBuildNumber}</Text>
     </View>
     <View>
-      {(__DEV__) ? <Text style={styles.setting.aboutSectionAppDevMode}>DEV ENV ({appBundleId})</Text> : null}
+      {(__DEV__) ? <Text style={styles.setting.aboutSectionAppDevMode}>{appBundleId}</Text> : null}
     </View>
   </View>
 );

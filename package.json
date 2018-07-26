@@ -1,6 +1,6 @@
 {
   "name": "CurrencyConverter",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Minimal currency converter by using React Native",
   "private": true,
   "scripts": {

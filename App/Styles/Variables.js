@@ -13,11 +13,10 @@ export default function (theme) {
       black: '#333333',
     },
     fonts: {
-      base: 'Merriweather-Regular',
-      bold: 'Merriweather-Bold',
-      emphasis: 'Merriweather-Italic',
-      numeric: 'StardosStencil-Regular',
-      numericBold: 'StardosStencil-Bold'
+      base: 'Ubuntu-Regular',
+      bold: 'Ubuntu-Bold',
+      emphasis: 'Ubuntu-Italic',
+      numeric: 'Iceberg-Regular'
     },
     fontSize: {
       large: normalize(17),
